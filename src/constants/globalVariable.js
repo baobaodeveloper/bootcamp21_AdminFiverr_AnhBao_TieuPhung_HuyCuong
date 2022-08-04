@@ -1,0 +1,14 @@
+export const SUCCESS = 200;
+export const UPDATE = 201;
+export const GET_INFOR_USER = 'GET_INFOR_USER';
+export const UPDATE_INFOR_USER = 'UPDATE_INFOR_USER';
+export const CREATE_USER_JOB = 'CREATE_USER_JOB';
+export const GET_LIST_WORK = 'GET_LIST_WORK';
+export const GET_ALL_TYPE_JOB = 'GET_ALL_TYPE_JOB';
+export const GET_SUBTYPE_JOB = 'GET_SUBTYPE_JOB';
+export const SEARCH_JOB_BY_NAME = 'SEARCH_JOB_BY_NAME';
+export const DELETE_JOB = 'DELETE_JOB';
+export const GET_DETAIL_JOB = 'GET_DETAIL_JOB';
+export const UPDATE_JOB = 'UPDATE_JOB';
+export const CREATE_JOB = 'CREATE_JOB';
+export const UPDATE_IMAGE_JOB = 'UPDATE_IMAGE_JOB';

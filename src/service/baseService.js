@@ -22,6 +22,16 @@ export class BaseService {
       },
     });
   };
+  getByName = (nameJob) => {
+    return axios({
+      url: `${DOMAIN}/${nameJob}`,
+      method: 'GET',
+      headers: {
+        token: TOKEN,
+        tokenByClass: TOKEN_CYBER,
+      },
+    });
+  };
   post = (url, model) => {
     return axios({
       url: `${DOMAIN}/${url}`,
