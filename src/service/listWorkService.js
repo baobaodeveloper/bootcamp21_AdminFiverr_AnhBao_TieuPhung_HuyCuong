@@ -24,6 +24,9 @@ class ListWork extends BaseService {
   deleteJob = (id) => {
     return this.delete(`api/jobs/${id}`);
   };
+  updateJobInfor = (id, data) => {
+    return this.put(`api/jobs/${id}`, data);
+  };
 }
 
 export const listWorkApi = new ListWork();

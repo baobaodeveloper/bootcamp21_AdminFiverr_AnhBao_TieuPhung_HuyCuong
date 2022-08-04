@@ -6,6 +6,7 @@ import {
   followGetListTypeJob,
   followGetListWork,
   followGetListWorkByName,
+  followUpdateJobInforDetail,
 } from '../pages/JobPage/listWorkSaga';
 
 export function* rootSaga() {
@@ -16,5 +17,6 @@ export function* rootSaga() {
     call(followCreateJob),
     call(followDeleteJobDetail),
     call(followGetJobDetailById),
+    call(followUpdateJobInforDetail),
   ]);
 }

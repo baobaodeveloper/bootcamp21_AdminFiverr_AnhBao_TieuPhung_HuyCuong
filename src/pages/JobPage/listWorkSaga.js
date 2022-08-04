@@ -15,6 +15,7 @@ import {
   SEARCH_JOB_BY_NAME,
   SUCCESS,
   UPDATE,
+  UPDATE_JOB,
 } from '../../constants/globalVariable';
 import { listWorkApi } from '../../service/listWorkService';
 import { notificationAlert } from '../../utils/notifycation';
@@ -129,7 +130,7 @@ function* getWorkDetailById(action) {
     const res = yield call(() =>
       listWorkApi.getWorkDetail(action.payload)
     );
-    console.log(res);
+
     if (res.status === SUCCESS) {
       yield put(listWorkPageActions.getWorkDetail(res?.data));
     }
@@ -139,4 +140,29 @@ function* getWorkDetailById(action) {
 }
 export function* followGetJobDetailById() {
   yield takeLatest(GET_DETAIL_JOB, getWorkDetailById);
+}
+
+function* updateJobInforDetail(action) {
+  try {
+    yield put(actionLoading.turnOnLoading());
+    yield delay(1000);
+    const res = yield call(() =>
+      listWorkApi.updateJobInfor(
+        action.payload.id,
+        action.payload.data
+      )
+    );
+    console.log(res);
+    if (res.status === SUCCESS) {
+      yield put(listWorkPageActions.idUploadImage(action.payload.id));
+      yield put({ type: GET_LIST_WORK });
+      yield put(actionLoading.turnOffLoading());
+    }
+  } catch (error) {
+    console.log('Fail fetch data', error);
+    yield put(actionLoading.turnOffLoading());
+  }
+}
+export function* followUpdateJobInforDetail() {
+  yield takeLatest(UPDATE_JOB, updateJobInforDetail);
 }

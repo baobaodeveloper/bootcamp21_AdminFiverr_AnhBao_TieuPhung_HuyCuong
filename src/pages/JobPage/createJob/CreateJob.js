@@ -8,6 +8,7 @@ import {
   CREATE_JOB,
   GET_ALL_TYPE_JOB,
   SUCCESS,
+  UPDATE_JOB,
 } from '../../../constants/globalVariable';
 import { listWorkApi } from '../../../service/listWorkService';
 
@@ -30,7 +31,6 @@ export const CreateJob = () => {
   const { workDetail } = useSelector(
     (state) => state.listWorkPageReducer
   );
-
   const { idJob } = useSelector((state) => state.listWorkPageReducer);
 
   const [form] = Form.useForm();
@@ -54,9 +54,39 @@ export const CreateJob = () => {
     id: '',
   });
   const onFinish = (values) => {
-    dispatch({ type: CREATE_JOB, payload: values });
+    let data = values;
+    const indexCheckType = typeJob.findIndex(
+      (type) => type.name === values.type
+    );
+    if (indexCheckType !== -1) {
+      data = { ...data, type: typeJob[indexCheckType].id };
+    }
+
+    const indexCheckSubType = typeJob
+      .map((type) =>
+        type.subTypeJobs?.filter(
+          (subType) => subType.label === values.subType
+        )
+      )
+      .filter((type) => type?.length > 0);
+    if (indexCheckSubType[0]?.length > 0) {
+      data = { ...data, subType: indexCheckSubType[0][0]?.key };
+    }
+    console.log(data);
+    if (id) {
+      dispatch({
+        type: UPDATE_JOB,
+        payload: {
+          id: id,
+          data: data,
+        },
+      });
+    } else {
+      dispatch({ type: CREATE_JOB, payload: data });
+    }
+
     if (!imageUpload) {
-      setTimeout(() => navigate('/job', 500));
+      setTimeout(() => navigate('/job', 1000));
     }
 
     form.resetFields();
@@ -76,7 +106,7 @@ export const CreateJob = () => {
           const res = await listWorkApi.updateImageJob(idJob, fd);
           console.log(res);
           if (res.status === SUCCESS) {
-            setTimeout(() => navigate('/job', 500));
+            setTimeout(() => navigate('/job', 800));
           }
           setImageUpload(null);
         } catch (error) {
@@ -100,7 +130,6 @@ export const CreateJob = () => {
   }, [imageUpload]);
 
   useEffect(() => {
-    console.log(workDetail, typeJob);
     if (id) {
       let valueJobEdit = {
         ...valueField,
@@ -116,8 +145,8 @@ export const CreateJob = () => {
       if (workDetail.type) {
         valueJobEdit = {
           ...valueJobEdit,
-          subType: workDetail.subType,
-          type: workDetail.type,
+          subType: workDetail.subType?.name,
+          type: workDetail.type?.name,
         };
       }
       setValueField(valueJobEdit);
