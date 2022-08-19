@@ -12,3 +12,10 @@ export const GET_DETAIL_JOB = 'GET_DETAIL_JOB';
 export const UPDATE_JOB = 'UPDATE_JOB';
 export const CREATE_JOB = 'CREATE_JOB';
 export const UPDATE_IMAGE_JOB = 'UPDATE_IMAGE_JOB';
+
+export const CREATE_USER = 'CREATE_USER';
+export const DELETE_USER = 'DELETE_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const GET_DETAIL_USER = 'GET_DETAIL_USER';
+export const GET_LIST_USER = 'GET_LIST_USER';
+export const SEARCH_USER_BY_NAME = 'SEARCH_USER_BY_NAME';

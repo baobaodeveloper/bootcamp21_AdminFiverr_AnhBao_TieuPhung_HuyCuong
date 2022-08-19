@@ -32,6 +32,21 @@
 }
 #create-job {
   .ant-switch.ant-switch-checked {
-    background-color: #1890ff;
+    background-color: #1890ff !important;
+  }
+}
+#create-user {
+  .ant-switch.ant-switch-checked {
+    background-color: #1890ff !important;
+  }
+  
+}
+
+#user-action-item {
+  .ant-btn.ant-btn-primary {
+    background-color: #1890ff !important;
+  }
+  .ant-btn.ant-btn-primary.ant-btn-dangerous {
+    background-color: #ff4d4f !important;
   }
 }

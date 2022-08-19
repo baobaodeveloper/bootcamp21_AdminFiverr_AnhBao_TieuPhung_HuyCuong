@@ -9,6 +9,15 @@ import {
   followUpdateJobInforDetail,
 } from '../pages/JobPage/listWorkSaga';
 
+import {
+  followGetListUser,
+  followGetUserDetailById,
+  followCreateUser,
+  followUpdateUserDetail,
+  followDeleteUser,
+  followGetListUserkByName,
+} from '../pages/userPage/listUserSaga';
+
 export function* rootSaga() {
   yield all([
     call(followGetListWork),
@@ -18,5 +27,11 @@ export function* rootSaga() {
     call(followDeleteJobDetail),
     call(followGetJobDetailById),
     call(followUpdateJobInforDetail),
+    call(followGetListUser),
+    call(followGetUserDetailById),
+    call(followCreateUser),
+    call(followUpdateUserDetail),
+    call(followDeleteUser),
+    call(followGetListUserkByName),
   ]);
 }
