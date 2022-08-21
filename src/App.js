@@ -47,6 +47,16 @@ function App() {
               </HomeTemplate>
             }
           />
+
+          <Route
+            path='/category/:id'
+            element={
+              <HomeTemplate>
+                <CategoryPage />
+              </HomeTemplate>
+            }
+          />
+
           <Route
             path='/job'
             element={
