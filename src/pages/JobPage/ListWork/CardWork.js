@@ -112,7 +112,7 @@ export const CardWork = ({ work }) => {
               />
               <div className='text-md flex flex-col'>
                 <span className='text-[#222325] text-[18px] font-semibold hover:underline cursor-pointer'>
-                  {work?.name.slice(0, 10)}
+                  {work?.name?.slice(0, 10)}
                 </span>
                 <span className='text-[#74767e] '>
                   Level 2 Seller
@@ -132,7 +132,7 @@ export const CardWork = ({ work }) => {
             </div>
           </div>
           <p className='my-4 md:block hidden hover:text-green-400 transition-all cursor-pointer text-[#222325] text-[18px] font-normal'>
-            {work?.name.slice(0, 30)}...
+            {work?.name?.slice(0, 30)}...
           </p>
           <div className='md:flex hidden  items-center gap-x-1'>
             <AiFillStar className='text-xl text-[#ffbe5b]' />
