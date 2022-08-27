@@ -6,6 +6,11 @@ import { CreateUser } from './pages/userPage/CreateUser/CreateUser';
 import JobPage from './pages/JobPage/JobPage';
 import UserPage from './pages/userPage/UserPage';
 import { HomeTemplate } from './template/HomeTemplate/HomeTemplate';
+import AddNewTypeJob from './pages/categoryPage/AddNewTypeJob/AddNewTypeJob';
+import EditTypeJob from './pages/categoryPage/EditTypeJob/EditTypeJob';
+import SubTypeJob from './pages/categoryPage/ListTypeWork/SubTypeJob/SubTypeJob';
+import AddNewSubTypeJob from './pages/categoryPage/ListTypeWork/AddNewSubTypeJob/AddNewSubTypeJob';
+import EditSubTypeJob from './pages/categoryPage/ListTypeWork/EditSubTypeJob/EditSubTypeJob';
 
 function App() {
   return (
@@ -39,6 +44,8 @@ function App() {
               </HomeTemplate>
             }
           />
+
+          {/* Category */}
           <Route
             path='/category'
             element={
@@ -47,12 +54,43 @@ function App() {
               </HomeTemplate>
             }
           />
-
           <Route
-            path='/category/:id'
+            path='/category/addnew'
             element={
               <HomeTemplate>
-                <CategoryPage />
+                <AddNewTypeJob />
+              </HomeTemplate>
+            }
+          />
+          <Route
+            path='/category/edit/:id'
+            element={
+              <HomeTemplate>
+                <EditTypeJob />
+              </HomeTemplate>
+            }
+          />
+          <Route
+            path='/category/typejob/:id'
+            element={
+              <HomeTemplate>
+                <SubTypeJob />
+              </HomeTemplate>
+            }
+          />
+          <Route
+            path='/category/typejob/:id/addnew'
+            element={
+              <HomeTemplate>
+                <AddNewSubTypeJob />
+              </HomeTemplate>
+            }
+          />
+          <Route
+            path='/category/typejob/:id1/:id2'
+            element={
+              <HomeTemplate>
+                <EditSubTypeJob />
               </HomeTemplate>
             }
           />
